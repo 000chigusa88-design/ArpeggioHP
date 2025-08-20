@@ -79,19 +79,6 @@ export default function Home() {
       </div>
 
       <div className="bg-black text-white flex flex-col items-center justify-center py-10 tracking-wider mx-10">
-        <h2 className="text-4xl font-bold">Arpeggioのメンバーを見てみよう！</h2>
-        <p className="text-xl mt-5 mx-10">
-          個性豊かなArpeggioメンバーをご紹介します。DTM班、歌ってみた班、イラスト班など、様々な班で活動するメンバーがいます！
-        </p>
-        <div className="flex space-x-4 mt-10">
-          <a href="/members"
-            className="bg-mikuBlue text-white font-semibold text-2xl px-8 py-4 rounded-lg transition-colors hover:scale-105">
-            メンバー一覧を見る
-          </a>
-        </div>
-      </div>
-
-      <div className="bg-black text-white flex flex-col items-center justify-center py-10 tracking-wider mx-10">
         <h2 className="text-4xl font-bold">Arpeggioに興味がある！</h2>
         <p className="text-xl mt-5 mx-10">
           Arpeggioの活動詳細やコンタクトはX (Twitter)から受け付けています。ぜひDMにてご連絡ください！
