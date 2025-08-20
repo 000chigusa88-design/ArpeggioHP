@@ -122,12 +122,8 @@ Cursorの左下にある、mainという文字（もしかしたらdevelopなど
 
 ![Cursor](./readme_pictures/cursor_create_branch_3.png)
 
-
-
-
-
-
 **ブランチを作成**
+ブランチを作成しよう
 
 ```コマンド
 git checkout -b feature/{ユーザー名}
@@ -141,6 +137,11 @@ git checkout -b feature/Nis450
 
 これで開発の準備は完了！！！！
 **あとは、自分が担当している部分をカタカタ開発しよう！！！！！**
+
+## とにかく開発に着手するときは、ブランチがfeature-{ユーザー名}-#番号になっているか確認！！
+
+# くれぐれもmainまたはdevelopの状態で進めてはいけない！
+本当に気をつけて！！
 
 ## 開発がひと段落ついたら
 

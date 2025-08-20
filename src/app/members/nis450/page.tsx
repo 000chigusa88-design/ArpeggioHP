@@ -8,7 +8,7 @@ const memberData = {
     id: "nis450",
     name: "にっしー",
     role: "映像班",
-    description: "VOCALOID楽曲制作と歌ってみたを中心に活動しています。楽曲制作では主に初音ミクを使用し、ポップスからロックまで幅広いジャンルに挑戦しています。",
+    description: "映像を作ったり、ホームページを作ったりしています",
     // 詳細情報
     details: {
         socialLinks: [
