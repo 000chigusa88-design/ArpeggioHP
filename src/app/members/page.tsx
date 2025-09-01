@@ -1,8 +1,9 @@
 "use client";
 
-import Header from '../base/Header';
-import Footer from '../base/Footer';
-import { members } from '../const/members/MemberList';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Image from 'next/image';
+import { members } from '../../const/members/MemberList';
 
 export default function MembersPage() {
 
@@ -32,9 +33,11 @@ export default function MembersPage() {
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-2 border-mikuBlue">
-                    <img 
+                    <Image 
                       src={`/members/${member.id}.png`} 
                       alt={member.name}
+                      width={128}
+                      height={128}
                       className="w-full h-full object-cover"
                     />
                   </div>
