@@ -4,17 +4,16 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import NextLink from 'next/link';
 import Image from 'next/image';
-import Header from '../base/Header';
-import { maitaList } from '../const/maita/MaitaList';
-import { maitaProfileList } from '../const/maita/MaitaProfileList';
-import Footer from '../base/Footer';
+import Header from '../components/Header';
+import { maitaList } from '../../const/maita/MaitaList';
+import { maitaProfileList } from '../../const/maita/MaitaProfileList';
+import Footer from '../components/Footer';
 import { MaitaIntroductionRow } from './maitaprops';
 
 export default function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isAgreed, setIsAgreed] = useState(false);
     const [selectedMaita, setSelectedMaita] = useState<{ id: string, name: string, description: string, downloadUrl: string } | null>(null);
-    const [termsLink, setTermsLink] = useState('/maita-term');
     const [termMessage, setTermMessage] = useState('ダウンロードを続行するには、利用規約をご確認ください。');
     const [lang, setLang] = useState('ja');
     const [isMaitaLogoVisible, setIsMaitaLogoVisible] = useState(false);
@@ -61,21 +60,17 @@ export default function Home() {
         const lang = queryParams.get('lang');
         if (lang === 'en') {
             setLang('en');
-            setTermsLink('/maita-term-english');
             setTermMessage('Please review the terms of use before continuing with the download.');
         } else if (lang === 'ja') {
             setLang('ja');
-            setTermsLink('/maita-term');
             setTermMessage('ダウンロードを続行するには、利用規約をご確認ください。');
         } else {
             const userLanguage = navigator.language;
             if (userLanguage.startsWith('ja')) {
                 setLang('ja');
-                setTermsLink('/maita-term');
                 setTermMessage('ダウンロードを続行するには、利用規約をご確認ください。');
             } else {
                 setLang('en');
-                setTermsLink('/maita-term-english');
                 setTermMessage('Please review the terms of use before continuing with the download.');
             }
         }
@@ -241,7 +236,7 @@ export default function Home() {
                             />
                             {lang === 'ja' ? (
                                 <>
-                                    <NextLink href={termsLink} className="text-mikuBlue underline hover:text-mikuPink transition-colors" target="_blank">
+                                    <NextLink href="/maita/term" className="text-mikuBlue underline hover:text-mikuPink transition-colors" target="_blank">
                                         利用規約
                                     </NextLink>
                                     に同意します
@@ -249,7 +244,7 @@ export default function Home() {
                             ) : (
                                 <>
                                     I agree to the
-                                    <NextLink href={termsLink} className="text-mikuBlue underline hover:text-mikuPink transition-colors ml-2" target="_blank">
+                                    <NextLink href="/maita/term" className="text-mikuBlue underline hover:text-mikuPink transition-colors ml-2" target="_blank">
                                         terms of use
                                     </NextLink>
                                 </>

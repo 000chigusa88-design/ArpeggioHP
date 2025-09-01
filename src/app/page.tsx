@@ -1,9 +1,9 @@
 "use client"; // これを追加
 
 import { useState, useEffect } from 'react';
-import Header from './base/Header';
-import { groups } from './const/group/GroupList';
-import Footer from './base/Footer';
+import Header from './components/Header';
+import { groups } from '../const/group/GroupList';
+import Footer from './components/Footer';
 
 export default function Home() {
   const [scrollOpacity, setScrollOpacity] = useState(1);

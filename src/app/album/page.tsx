@@ -2,11 +2,11 @@
 
 import Head from 'next/head';
 import { useState } from 'react';
-import { Song } from "@/app/classes/album";
-import { albumList } from '../const/album/albumlist';
+import { Song } from "@/classes/album";
+import { albumList } from '../../const/album/albumlist';
 import Image from 'next/image';
-import Header from '../base/Header';
-import Footer from '../base/Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Home() {
     const [isModalOpen, setModalOpen] = useState(false);

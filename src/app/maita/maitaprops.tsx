@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import DownloadIcon from '@mui/icons-material/Download';
-import { Maita } from '@/app/classes/maita';
+import { Maita } from '@/classes/maita';
 
 type MaitaProps = {
     maita: Maita;

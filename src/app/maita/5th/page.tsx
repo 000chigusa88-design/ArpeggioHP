@@ -1,8 +1,8 @@
 "use client";
 
 import Head from 'next/head';
-import Header from '../../base/Header';
-import Footer from '../../base/Footer';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import NextLink from 'next/link';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';

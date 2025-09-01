@@ -1,7 +1,8 @@
 "use client";
 
-import Header from '../../base/Header';
-import Footer from '../../base/Footer';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Image from 'next/image';
 
 // Nis450さんの詳細データ
 const memberData = {
@@ -32,9 +33,11 @@ export default function Nis450Page() {
             <div className="bg-black text-white min-h-screen">
                 <div className="flex flex-col items-center justify-center py-20 ">
                     <div className="w-48 h-48 rounded-full overflow-hidden mb-8 border-4 border-mikuBlue">
-                        <img
+                        <Image
                             src={`/members/${memberData.id}.png`}
                             alt={memberData.name}
+                            width={192}
+                            height={192}
                             className="w-full h-full object-cover"
                         />
                     </div>
