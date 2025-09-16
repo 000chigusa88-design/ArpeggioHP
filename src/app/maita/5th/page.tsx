@@ -101,6 +101,22 @@ export default function FifthAnniversary() {
                                             </div>
                                         </div>
                                     </Link>
+                                    
+                                    <div className="bg-gray-200 rounded-xl shadow-xl overflow-hidden">
+                                        <div className="aspect-square relative flex items-center justify-center">
+                                            <div className="text-center">
+                                                <div className="text-gray-500 text-lg font-medium">Coming Soon...</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="bg-gray-200 rounded-xl shadow-xl overflow-hidden">
+                                        <div className="aspect-square relative flex items-center justify-center">
+                                            <div className="text-center">
+                                                <div className="text-gray-500 text-lg font-medium">Coming Soon...</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

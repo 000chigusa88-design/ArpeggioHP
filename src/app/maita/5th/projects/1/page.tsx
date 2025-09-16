@@ -5,9 +5,46 @@ import Header from '../../../../../components/Header';
 import Footer from '../../../../components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
+import Script from 'next/script';
+import { useEffect, useRef } from 'react';
+
+// Twitter埋め込み用の型定義
+declare global {
+    interface Window {
+        twttr?: {
+            widgets: {
+                load: (element?: HTMLElement | null) => void;
+            };
+        };
+    }
+}
+
+// Tweetコンポーネント
+const Tweet: React.FC<{ id: string }> = ({ id }) => {
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        window.twttr?.widgets.load(ref.current);
+    }, [id]);
+
+    return (
+        <div
+            className="flex justify-center"
+            dangerouslySetInnerHTML={{ __html: generateEmbedHtml(id) }}
+            ref={ref}
+        />
+    );
+};
+
+const generateEmbedHtml = (id: string): string => {
+    if (!/^\d+$/u.test(id)) {
+        throw new Error(`Invalid tweet ID: ${id}`);
+    }
+
+    return `<blockquote class="twitter-tweet" data-width="100%"><a href="https://twitter.com/i/status/${id}"></a></blockquote>`;
+};
 
 export default function ProjectDetail() {
-
 
     return (
         <>
@@ -28,7 +65,7 @@ export default function ProjectDetail() {
                                         alt="5th Anniversary Logo"
                                         width={300}
                                         height={75}
-                                        className="drop-shadow-2xl"
+                                    
                                     />
                                 </div>
                             </div>
@@ -55,17 +92,25 @@ export default function ProjectDetail() {
                             <div className="prose prose-lg max-w-none">
                                 <p className="text-gray-700 leading-relaxed mb-6">
                                     琵音マイタのLINEスタンプが販売開始されました！
-
-                                    <br></br>(もっと文章書く？)
+                                    <br></br>
+                                    このスタンプはOBと現役生が共同で制作しました！
+                                    <br></br>
+                                    下のボタンから琵音マイタのスタンプをご覧ください！
                                 </p>
 
-                                <div className="text-center">
+                                <div className="text-center mb-8">
                                     <a
                                         href="#"
                                         className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-xl transition-colors duration-200 shadow-lg hover:shadow-xl"
                                     >
                                         LINEスタンプストアで購入
                                     </a>
+                                </div>
+
+                                <div className="text-center -mx-8">
+                                    <div className="w-full">
+                                        <Tweet id="1907291007911387582" />
+                                    </div>
                                 </div>
                             </div>
 
@@ -87,6 +132,11 @@ export default function ProjectDetail() {
 
                 <Footer bgColor="bg-transparent" textColor="text-gray-800" />
             </div>
+            
+            <Script
+                src="https://platform.twitter.com/widgets.js"
+                strategy="lazyOnload"
+            />
         </>
     );
 }
