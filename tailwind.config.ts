@@ -15,6 +15,18 @@ const config: Config = {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        fadeInDown: {
+          '0%': { opacity: '0', transform: 'translateY(-30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideInFromLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        slideInFromRight: {
+          '0%': { opacity: '0', transform: 'translateX(50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
         bouncePulse: {
           '0%, 100%': { transform: 'translateY(-25%)', opacity: '1' },
           '50%': { transform: 'translateY(0)', opacity: '0.5' },
@@ -27,7 +39,10 @@ const config: Config = {
 
       },
       animation: {
-        fadeInUp: 'fadeInUp 2s ease-out',
+        fadeInUp: 'fadeInUp 1s ease-out',
+        fadeInDown: 'fadeInDown 1s ease-out',
+        slideInFromLeft: 'slideInFromLeft 1.2s ease-out',
+        slideInFromRight: 'slideInFromRight 1.2s ease-out',
         bouncePulse: 'bouncePulse 1s infinite',
         'slide-loop': 'slide 10s linear infinite',
       },

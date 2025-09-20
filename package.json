@@ -13,10 +13,12 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
+    "@types/three": "^0.180.0",
     "autoprefixer": "^10.4.20",
     "next": "^15.5.2",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "three": "^0.180.0"
   },
   "devDependencies": {
     "@types/node": "^20",

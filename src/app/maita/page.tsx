@@ -4,10 +4,10 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import NextLink from 'next/link';
 import Image from 'next/image';
-import Header from '../components/Header';
+import Header from '@/components/Header';
 import { maitaList } from '../../const/maita/MaitaList';
 import { maitaProfileList } from '../../const/maita/MaitaProfileList';
-import Footer from '../components/Footer';
+import Footer from '@/components/Footer';
 import { MaitaIntroductionRow } from './maitaprops';
 
 export default function Home() {
@@ -98,7 +98,7 @@ export default function Home() {
             <Head>
                 <title>Arpeggio</title>
             </Head>
-            <Header bgColor="bg-black" textColor="text-white" />
+            <Header bgColor="bg-black" textColor="text-black" />
 
             <div className="bg-black text-white flex flex-col items-center justify-center py-25 min-h-screen tracking-lwidest relative">
                 <div className="text-white flex flex-col items-center justify-center py-20 min-h-screen tracking-lwidest relative">
