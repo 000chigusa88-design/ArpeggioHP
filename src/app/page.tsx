@@ -34,7 +34,6 @@ export default function Home() {
       <Header 
         bgColor={animationComplete ? "bg-white" : "bg-black"} 
         textColor="text-black"
-        expandFromZero
       />
       <div 
         className="flex flex-col items-center justify-center py-20 min-h-screen tracking-lwidest transition-colors duration-5000 ease-in-out"
