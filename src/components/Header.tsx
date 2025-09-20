@@ -8,11 +8,14 @@ import Image from 'next/image';
 type HeaderProps = {
     bgColor: string;
     textColor: string;
+    /** このヘッダーを横幅0から展開アニメーションさせる場合にtrue */
+    expandFromZero?: boolean;
 };
 
-const Header: React.FC<HeaderProps> = ({ bgColor, textColor }) => {
+const Header: React.FC<HeaderProps> = ({ bgColor, textColor, expandFromZero }) => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [hasExpanded, setHasExpanded] = useState(!expandFromZero);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -55,10 +58,34 @@ const Header: React.FC<HeaderProps> = ({ bgColor, textColor }) => {
         };
     }, [isDropdownOpen]);
 
+    // 横幅0からの展開アニメーション（ページ限定で有効化される）
+    useEffect(() => {
+        if (expandFromZero) {
+            // レイアウト確定後に発火してスムーズに遷移
+            const id = requestAnimationFrame(() => setHasExpanded(true));
+            return () => cancelAnimationFrame(id);
+        }
+    }, [expandFromZero]);
+
     return (
-        <header className={`${bgColor} ${textColor} fixed top-0 left-0 w-full z-50 flex justify-center`}>
+        <header 
+          className="fixed top-0 left-0 w-full z-50 flex justify-center"
+          style={{
+            backgroundColor: bgColor === 'bg-white' ? 'white' : 'black',
+            color: textColor === 'text-white' ? 'white' : 'black',
+            transition: 'background-color 1s ease-in-out, color 1s ease-in-out'
+          }}
+        >
             {/* 横細長い四角形（角丸）のヘッダー */}
-            <div className="w-11/12 max-w-4xl mt-6 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-200/50 relative">
+            <div
+                className="max-w-4xl mt-6 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-200/50 relative overflow-hidden"
+                style={{
+                    width: hasExpanded ? '91.6667%' : 0, // 11/12
+                    opacity: hasExpanded ? 1 : 0,
+                    height: '64px', // 高さを少し減らす
+                    transition: 'width 5000ms cubic-bezier(0.23, 1, 0.32, 1), opacity 3000ms cubic-bezier(0.23, 1, 0.32, 1)'
+                }}
+            >
                 {/* Favicon - 左端に固定 */}
                 <div className="absolute left-2 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-md rounded-full  flex items-center justify-center">
                     <Image
@@ -70,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({ bgColor, textColor }) => {
                     />
                 </div>
                 {/* モバイル版のハンバーガーメニュー */}
-                <div className="lg:hidden flex justify-between items-center px-6 py-4">
+                <div className="lg:hidden flex justify-between items-center px-6 h-full">
                     <button onClick={toggleMenu} className="focus:outline-none flex items-center space-x-2">
                         <div className="text-lg font-light tracking-widest">メニュー</div>
                         <div className="hamburger-icon flex flex-col justify-between w-6 h-6">
@@ -129,8 +156,8 @@ const Header: React.FC<HeaderProps> = ({ bgColor, textColor }) => {
                 </div>
 
                 {/* PC向けのメニュー */}
-                <nav className="hidden lg:flex justify-center">
-                    <ul className="flex space-x-12 text-lg font-light relative tracking-widest py-4">
+                <nav className="hidden lg:flex justify-center h-full">
+                    <ul className="flex space-x-12 text-lg font-light relative tracking-widest items-center">
                         <li className={`transition-opacity duration-300 ${isDropdownOpen ? 'opacity-20' : 'opacity-100'}`}>
                             <NextLink href="/" className="hover:text-mikuBlue transition-colors">TOP</NextLink>
                         </li>

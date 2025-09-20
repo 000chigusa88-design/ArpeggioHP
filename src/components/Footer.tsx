@@ -9,7 +9,14 @@ const Footer: React.FC<FooterProps> = ({ bgColor, textColor }) => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className={`${bgColor} ${textColor} text-center py-4 relative z-10`}>
+        <footer 
+          className="text-center py-4 relative z-10"
+          style={{
+            backgroundColor: bgColor === 'bg-white' ? 'white' : 'black',
+            color: textColor === 'text-white' ? 'white' : 'black',
+            transition: 'background-color 1s ease-in-out, color 1s ease-in-out'
+          }}
+        >
             <div className="flex justify-center items-center space-x-4 mb-4">
                 <a 
                     href="https://twitter.com/arpeggio_kouhou" 
