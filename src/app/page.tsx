@@ -91,7 +91,7 @@ export default function Home() {
       >
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Arpeggioって何をするサークル？</h2>
         
-        <p className="text-base sm:text-lg md:text-xl mt-10 mx-10">
+        <p className="text-base sm:text-lg md:text-xl mt-10">
           ArpeggioはVOCALOIDをはじめ合成音声に関する創作活動をしているサークルです！
         </p>
         <p className="text-base sm:text-lg md:text-xl my-10">
@@ -128,7 +128,7 @@ export default function Home() {
         className="flex flex-col items-center justify-center py-10 tracking-wider px-10"
       >
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Arpeggioにはどんな人がいるの？？</h2>
-        <p className="text-base sm:text-lg md:text-xl mt-5 mx-10">
+        <p className="text-base sm:text-lg md:text-xl mt-5">
           Arpeggioはとにかく面白い人や歌が上手な人、神絵師さんなど、個性豊かな人たちがたくさんいます
         </p>
         <div className="flex space-x-4 mt-10">
@@ -164,7 +164,7 @@ export default function Home() {
         className="flex flex-col items-center justify-center py-10 tracking-wider px-10"
       >
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Arpeggioに興味がある！</h2>
-        <p className="text-base sm:text-lg md:text-xl mt-5 mx-10">
+        <p className="text-base sm:text-lg md:text-xl mt-5">
           Arpeggioの活動詳細やコンタクトはXから受け付けています。ぜひDMにてご連絡ください！
         </p>
         <div className="flex space-x-4 mt-10">
@@ -178,7 +178,7 @@ export default function Home() {
                 : 'text-mikuBlue border-transparent hover:border-mikuPink'
             }`}
           >
-            X (Twitter)を見る
+            Xを見る
           </a>
         </div>
       </div>
