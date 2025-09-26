@@ -73,7 +73,7 @@ export default function ProjectDetail() {
                         <div className="bg-white rounded-2xl shadow-lg p-8">
                             <div className="mb-8">
                                 <p className="text-gray-500 text-sm mb-4">
-                                    2025 9/10
+                                    2025 9/27
                                 </p>
                                 <h1 className="text-3xl font-bold text-gray-800 mb-6">
                                     琵音マイタLINEスタンプ販売！

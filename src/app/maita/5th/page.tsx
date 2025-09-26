@@ -61,7 +61,7 @@ export default function FifthAnniversary() {
                 <div className={`transition-opacity duration-1000 ${showSplash ? 'opacity-0' : 'opacity-100'}`}>
                     <Header bgColor="bg-transparent" textColor="text-gray-800" />
 
-                    <main className="pt-20 sm:pt-32 pb-8 sm:pb-16 px-4">
+                    <main className="pt-32 sm:pt-32 pb-8 sm:pb-16 px-4">
                         {/* ヒーローセクション */}
                         <div className="max-w-7xl mx-auto">
                             <div className="text-center mb-8 sm:mb-16">
@@ -92,7 +92,7 @@ export default function FifthAnniversary() {
                                             </div>
                                             <div className="p-2 sm:p-3">
                                                 <p className="text-gray-600 text-xs sm:text-sm">
-                                                    2025 9/10
+                                                    2025 9/27
                                                 </p>
                                                 <h3 className="text-sm sm:text-base font-bold text-gray-800 mb-1">
                                                     琵音マイタLINEスタンプ販売！
