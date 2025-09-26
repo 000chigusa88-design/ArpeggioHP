@@ -71,23 +71,29 @@ const Header: React.FC<HeaderProps> = ({ bgColor, textColor, expandFromZero }) =
         <header 
           className="fixed top-0 left-0 w-full z-50 flex justify-center"
           style={{
-            backgroundColor: bgColor === 'bg-white' ? 'white' : 'black',
+            backgroundColor: bgColor === 'bg-transparent' ? 'transparent' : 
+                            bgColor === 'bg-white' ? 'white' : 
+                            bgColor === 'bg-pink-50' ? '#fdf2f8' : 'transparent',
             color: textColor === 'text-white' ? 'white' : 'black',
             transition: 'background-color 1s ease-in-out, color 1s ease-in-out'
           }}
         >
             {/* 横細長い四角形（角丸）のヘッダー */}
             <div
-                className="max-w-4xl mt-6 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-gray-200/50 relative overflow-hidden"
+                className={`max-w-4xl mt-6 bg-white/90 backdrop-blur-md shadow-lg border border-gray-200/50 relative overflow-hidden ${
+                    isMenuOpen ? 'rounded-2xl' : 'rounded-full'
+                }`}
                 style={{
                     width: hasExpanded ? '91.6667%' : 0, // 11/12
                     opacity: hasExpanded ? 1 : 0,
-                    height: '64px', // 高さを少し減らす
-                    transition: 'width 5000ms cubic-bezier(0.23, 1, 0.32, 1), opacity 3000ms cubic-bezier(0.23, 1, 0.32, 1)'
+                    height: isMenuOpen ? '320px' : '64px', // メニュー展開時に高さを増やす
+                    transition: 'width 5000ms cubic-bezier(0.23, 1, 0.32, 1), opacity 3000ms cubic-bezier(0.23, 1, 0.32, 1), height 300ms ease-in-out, border-radius 300ms ease-in-out'
                 }}
             >
-                {/* Favicon - 左端に固定 */}
-                <div className="absolute left-2 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-md rounded-full  flex items-center justify-center">
+                {/* Favicon - 左端に固定（展開時は非表示） */}
+                <div className={`absolute left-2 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center transition-opacity duration-300 ${
+                    isMenuOpen ? 'opacity-0' : 'opacity-100'
+                }`}>
                     <Image
                         src="/icon.png"
                         alt="Arpeggio Logo"
@@ -96,63 +102,75 @@ const Header: React.FC<HeaderProps> = ({ bgColor, textColor, expandFromZero }) =
                         className="w-8 h-8"
                     />
                 </div>
-                {/* モバイル版のハンバーガーメニュー */}
-                <div className="lg:hidden flex justify-between items-center px-6 h-full">
-                    <button onClick={toggleMenu} className="focus:outline-none flex items-center space-x-2">
-                        <div className="text-lg font-light tracking-widest">メニュー</div>
-                        <div className="hamburger-icon flex flex-col justify-between w-6 h-6">
-                            <span className="block w-full h-0.5 bg-current"></span>
-                            <span className="block w-full h-0.5 bg-current"></span>
-                            <span className="block w-full h-0.5 bg-current"></span>
-                        </div>
+
+                {/* 閉じるボタン（展開時のみ表示） */}
+                <div className={`lg:hidden absolute right-4 top-4 transition-opacity duration-300 ${
+                    isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}>
+                    <button 
+                        onClick={toggleMenu} 
+                        className="w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center focus:outline-none transition-colors"
+                    >
+                        <span className="text-gray-600 text-lg">×</span>
                     </button>
                 </div>
 
-                {/* モバイル用のサイドバーメニュー */}
-                <div
-                    className={`lg:hidden fixed top-0 left-0 h-full w-64 bg-gray-800 text-white p-4 transition-transform transform ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-                        } z-50`}
-                >
-                    <button
-                        onClick={toggleMenu}
-                        className="text-right text-2xl mb-4 focus:outline-none"
-                    >
-                        &times;
+                {/* モバイル版のメニューボタン（展開時は非表示） */}
+                <div className={`lg:hidden flex justify-end items-center px-6 h-full transition-opacity duration-300 ${
+                    isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
+                }`}>
+                    <button onClick={toggleMenu} className="focus:outline-none flex items-center space-x-2">
+                        <div className="text-lg font-light tracking-widest">メニュー</div>
                     </button>
-                    <ul className="flex flex-col space-y-4 text-lg font-light tracking-widest">
-                        <li><NextLink href="/" className="hover:text-mikuBlue transition-colors" onClick={toggleMenu}>TOP</NextLink></li>
-                        <li><Link href="/activity" className="hover:text-mikuPink transition-colors" onClick={toggleMenu}>活動内容</Link></li>
-                        <li className="relative">
-                            <div className="flex items-center">
-                                BLOG
-                            </div>
-                            <ul className="mt-2 ml-4 space-y-2">
-                                <li>
-                                    <a
-                                        href="https://note.com/arpeggiovocaloid/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:text-mikuBlue block transition-colors"
-                                    >
-                                        note
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="http://arpeggiod.blog90.fc2.com/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="hover:text-mikuBlue block transition-colors"
-                                    >
-                                        fc2
-                                    </a>
-                                </li>
-                            </ul>
+                </div>
 
-                        </li>
-                        <li><NextLink href="/maita" className="hover:text-mikuPink transition-colors" onClick={toggleMenu}>琵音マイタ</NextLink></li>
-                        <li><NextLink href="/album" className="hover:text-mikuPink transition-colors" onClick={toggleMenu}>ALBUM</NextLink></li>
-                    </ul>
+                {/* モバイル用の展開メニュー */}
+                <div className={`lg:hidden absolute top-16 left-0 w-full transition-all duration-300 ease-in-out ${
+                    isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                }`}>
+                    <div className="flex flex-col space-y-0 px-6 pb-6">
+                        <button 
+                            onClick={() => { window.location.href = '/'; toggleMenu(); }}
+                            className="text-left text-lg font-light tracking-widest py-1 hover:text-mikuBlue transition-colors"
+                        >
+                            TOP
+                        </button>
+                        <button 
+                            onClick={() => { window.location.href = '/activity'; toggleMenu(); }}
+                            className="text-left text-lg font-light tracking-widest py-1 hover:text-mikuPink transition-colors"
+                        >
+                            活動内容
+                        </button>
+                        <div className="py-1">
+                            <div className="text-lg font-light tracking-widest">BLOG</div>
+                            <div className="ml-4 mt-0 space-y-0">
+                                <button 
+                                    onClick={() => { window.open('https://note.com/arpeggiovocaloid/', '_blank'); toggleMenu(); }}
+                                    className="text-left text-base font-light tracking-widest py-0.5 hover:text-mikuBlue transition-colors block"
+                                >
+                                    note
+                                </button>
+                                <button 
+                                    onClick={() => { window.open('http://arpeggiod.blog90.fc2.com/', '_blank'); toggleMenu(); }}
+                                    className="text-left text-base font-light tracking-widest py-0.5 hover:text-mikuBlue transition-colors block"
+                                >
+                                    fc2
+                                </button>
+                            </div>
+                        </div>
+                        <button 
+                            onClick={() => { window.location.href = '/maita'; toggleMenu(); }}
+                            className="text-left text-lg font-light tracking-widest py-1 hover:text-mikuPink transition-colors"
+                        >
+                            琵音マイタ
+                        </button>
+                        <button 
+                            onClick={() => { window.location.href = '/album'; toggleMenu(); }}
+                            className="text-left text-lg font-light tracking-widest py-1 hover:text-mikuPink transition-colors"
+                        >
+                            ALBUM
+                        </button>
+                    </div>
                 </div>
 
                 {/* PC向けのメニュー */}

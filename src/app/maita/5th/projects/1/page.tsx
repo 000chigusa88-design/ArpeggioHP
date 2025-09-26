@@ -53,7 +53,7 @@ export default function ProjectDetail() {
             </Head>
             <div className="bg-pink-50 min-h-screen relative">
 
-                <Header bgColor="bg-" textColor="text-gray-800" />
+                <Header bgColor="bg-pink-50" textColor="text-gray-800" />
 
                 <main className="pt-32 pb-16 px-4">
                     <div className="max-w-4xl mx-auto">
@@ -133,10 +133,10 @@ export default function ProjectDetail() {
                 <Footer bgColor="bg-transparent" textColor="text-gray-800" />
             </div>
             
-            <Script
+            {/* <Script
                 src="https://platform.twitter.com/widgets.js"
                 strategy="lazyOnload"
-            />
+            /> */}
         </>
     );
 }
