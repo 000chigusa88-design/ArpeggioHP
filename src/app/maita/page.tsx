@@ -156,15 +156,15 @@ export default function Home() {
                             <span>5周年ページはこちら！</span>
                         </NextLink>
                     </div>
-                    <h2 className="text-6xl mt-20 font-bold">琵音マイタとは？</h2>
-                    <p className="text-xl mt-10 mx-20">
+                    <h2 className="text-3xl md:text-6xl mt-20 font-bold">琵音マイタとは？</h2>
+                    <p className="text-base md:text-xl mt-10 mx-7">
                         琵音マイタ(びおん まいた)とは同志社大学VOCALOID研究会Arpeggioの創立10周年記念プロジェクトで作成されたキャラクターです。
                     </p>
                 </div>
             </div>
 
             <div className="bg-black text-white flex flex-col items-center justify-center pb-10 tracking-wider pt-10">
-                <div className='mx-10 flex flex-col items-center justify-center custom:flex-row'>
+                <div className='mx-5 flex flex-col items-center justify-center custom:flex-row'>
                     <Image
                         src="/maita/Normal/portrait.png"
                         alt="マイタの立ち絵"
@@ -173,13 +173,13 @@ export default function Home() {
                         style={{ width: 'custom:80% 30%', height: 'auto' }}
                     />
                     <div className='flex flex-col'>
-                        <p className="text-xl mt-5 ">
+                        <p className="text-base md:text-xl mt-5 ">
                             音楽が好きで元気いっぱいのArpeggioメンバー。
                         </p>
-                        <p className="text-xl mt-5 ">
+                        <p className="text-base md:text-xl mt-5 ">
                             Arpeggioのことが大好きで髪色は班の数に合わせている。
                         </p>
-                        <ul className="text-xl mt-5 space-y-3">
+                        <ul className="text-base md:text-xl mt-5 space-y-3">
                             {maitaProfileList.map((profile, index) => (
                                 <li key={index}>{profile.label}: {profile.value}</li> // 'key' ではなく 'label' に修正
                             ))}
@@ -201,7 +201,7 @@ export default function Home() {
 
                 <div className="mt-8 text-center">
                     <h2 className="text-3xl font-semibold mb-4">UTAUとは？</h2>
-                    <p className="mb-4  px-10 text-xl">
+                    <p className="mb-4  px-4 text-base md:text-xl">
                         飴屋／菖蒲（あめや・あやめ）氏制作の、歌声合成ソフトウェアです。
                         配布されている数多の音声ライブラリを導入することでお好みの音声で歌唱を作成することが出来ます。
                         VOCALOIDではありません。基本的にフリーソフトです。 当サイトで配布している音声ライブラリだけでは歌えませんので、こちらもDL下さい。

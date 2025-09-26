@@ -12,7 +12,9 @@ const Footer: React.FC<FooterProps> = ({ bgColor, textColor }) => {
         <footer 
           className="text-center py-4 relative z-10"
           style={{
-            backgroundColor: bgColor === 'bg-white' ? 'white' : 'black',
+            backgroundColor: bgColor === 'bg-transparent' ? 'transparent' : 
+                            bgColor === 'bg-white' ? 'white' : 
+                            bgColor === 'bg-pink-50' ? '#fdf2f8' : 'transparent',
             color: textColor === 'text-white' ? 'white' : 'black',
             transition: 'background-color 1s ease-in-out, color 1s ease-in-out'
           }}
