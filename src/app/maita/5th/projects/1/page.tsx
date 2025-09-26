@@ -75,7 +75,7 @@ export default function ProjectDetail() {
                                 <p className="text-gray-500 text-sm mb-4">
                                     2025 9/27
                                 </p>
-                                <h1 className="text-3xl font-bold text-gray-800 mb-6">
+                                <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-6">
                                     琵音マイタLINEスタンプ販売！
                                 </h1>
                                 <div className="relative mb-8">

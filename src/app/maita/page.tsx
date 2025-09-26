@@ -101,27 +101,27 @@ export default function Home() {
             <Header bgColor="bg-black" textColor="text-black" />
 
             <div className="bg-black text-white flex flex-col items-center justify-center py-25 min-h-screen tracking-lwidest relative">
-                <div className="text-white flex flex-col items-center justify-center py-20 min-h-screen tracking-lwidest relative">
+                <div className="text-white flex flex-col items-center justify-center py-20 max-w-4xl min-h-screen tracking-lwidest relative">
                     <Image
                         src="/BionMaitaLogo.png"
                         alt="琵音マイタのロゴ"
                         width={384}
                         height={216}
                         className={`transition-opacity duration-500 ${isMaitaLogoVisible ? 'opacity-100' : 'opacity-0'}`}
-                        style={{ width: '40%', height: 'auto' }}
+                        style={{ width: '70%', height: 'auto' }}
                     />
 
                     <div className="space-y-6 flex flex-col items-center justify-center">
-                        <div className={`text-yellow-100 text-3xl font-light mt-10 transition-opacity duration-500 ${isCapellaVisible ? 'opacity-100' : 'opacity-0'}`}>
+                        <div className={`text-yellow-100 text-2xl md:text-4xl font-light mt-10 transition-opacity duration-500 ${isCapellaVisible ? 'opacity-100' : 'opacity-0'}`}>
                             - Capella
                         </div>
-                        <div className={`text-red-300 text-3xl font-light mt-2 transition-opacity duration-500 ${isAntaresVisible ? 'opacity-100' : 'opacity-0'}`}>
+                        <div className={`text-red-300 text-2xl md:text-4xl font-light mt-2 transition-opacity duration-500 ${isAntaresVisible ? 'opacity-100' : 'opacity-0'}`}>
                             - Antares
                         </div>
-                        <div className={`text-blue-300 text-3xl font-light mt-2 transition-opacity duration-500 ${isSiriusVisible ? 'opacity-100' : 'opacity-0'}`}>
+                        <div className={`text-blue-300 text-2xl md:text-4xl font-light mt-2 transition-opacity duration-500 ${isSiriusVisible ? 'opacity-100' : 'opacity-0'}`}>
                             - Sirius
                         </div>
-                        <div className={`text-white text-3xl font-light mt-2 transition-opacity duration-500 ${isPolarisVisible ? 'opacity-100' : 'opacity-0'}`}>
+                        <div className={`text-white text-2xl md:text-4xl font-light mt-2 transition-opacity duration-500 ${isPolarisVisible ? 'opacity-100' : 'opacity-0'}`}>
                             - Polaris
                         </div>
 
@@ -208,7 +208,7 @@ export default function Home() {
                     </p>
 
                     <a
-                        href="http://utau2008.web.fc2.com/"
+                        href="https://utau2008.xrea.jp/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-4 bg-maitaPurple text-white font-semibold text-lg px-6 py-3 rounded-lg transition-colors hover:bg-maitaHoverPurple inline-block"
@@ -218,7 +218,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <Footer bgColor="bg-black" textColor="text-white" />
+            <Footer bgColor="bg-black" textColor="text-black" />
 
             {isModalOpen && selectedMaita && (
                 <div className="fixed inset-0 text-black bg-black bg-opacity-50 flex items-center justify-center">

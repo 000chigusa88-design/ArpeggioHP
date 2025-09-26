@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ bgColor, textColor, expandFromZero }) =
                 {/* ヘッダー内容 */}
                 <div className="flex items-center justify-between px-6 py-3 h-16">
                     {/* ロゴ部分 */}
-                    <div className="flex items-center space-x-2">
+                    <NextLink href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
                         <Image
                             src="/icon.png"
                             alt="Arpeggio Logo"
@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ bgColor, textColor, expandFromZero }) =
                             className="w-8 h-8"
                         />
                         <span className="text-lg font-light tracking-widest text-black">Arpeggio</span>
-                    </div>
+                    </NextLink>
 
                     {/* PC向けのメニュー */}
                     <nav className="hidden lg:flex space-x-4">
@@ -94,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({ bgColor, textColor, expandFromZero }) =
                             </svg>
                         )}
                     </button>
-                </div>
+                </div>U
 
                 {/* モバイル用の展開メニュー */}
                 {isMenuOpen && (
