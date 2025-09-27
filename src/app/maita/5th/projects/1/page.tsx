@@ -62,7 +62,9 @@ export default function ProjectDetail() {
 
                                 <div className="text-center mb-8">
                                     <a
-                                        href="#"
+                                        href="https://line.me/S/sticker/31434186/?lang=ja&utm_source=gnsh_stickerDetail"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-xl transition-colors duration-200 shadow-lg hover:shadow-xl"
                                     >
                                         LINEスタンプストアで購入
