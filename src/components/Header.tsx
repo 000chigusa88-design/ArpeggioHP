@@ -59,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({ bgColor, textColor, expandFromZero }) =
                     {/* ロゴ部分 */}
                     <NextLink href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
                         <Image
-                            src="/icon.png"
+                            src="/clearLogo.png"
                             alt="Arpeggio Logo"
                             width={32}
                             height={32}
@@ -94,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({ bgColor, textColor, expandFromZero }) =
                             </svg>
                         )}
                     </button>
-                </div>U
+                </div>
 
                 {/* モバイル用の展開メニュー */}
                 {isMenuOpen && (

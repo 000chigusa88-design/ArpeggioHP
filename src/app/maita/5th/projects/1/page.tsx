@@ -5,44 +5,6 @@ import Header from '@/components/Header';
 import Footer from '../../../../../components/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
-import { useEffect, useRef } from 'react';
-
-// Twitter埋め込み用の型定義
-declare global {
-    interface Window {
-        twttr?: {
-            widgets: {
-                load: (element?: HTMLElement | null) => void;
-            };
-        };
-    }
-}
-
-// Tweetコンポーネント
-const Tweet: React.FC<{ id: string }> = ({ id }) => {
-    const ref = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        window.twttr?.widgets.load(ref.current);
-    }, [id]);
-
-    return (
-        <div
-            className="flex justify-center"
-            dangerouslySetInnerHTML={{ __html: generateEmbedHtml(id) }}
-            ref={ref}
-        />
-    );
-};
-
-const generateEmbedHtml = (id: string): string => {
-    if (!/^\d+$/u.test(id)) {
-        throw new Error(`Invalid tweet ID: ${id}`);
-    }
-
-    return `<blockquote class="twitter-tweet" data-width="100%"><a href="https://twitter.com/i/status/${id}"></a></blockquote>`;
-};
 
 export default function ProjectDetail() {
 
@@ -107,9 +69,30 @@ export default function ProjectDetail() {
                                     </a>
                                 </div>
 
-                                <div className="text-center -mx-8">
-                                    <div className="w-full">
-                                        <Tweet id="1907291007911387582" />
+                                {/* クレジット */}
+                                <div className="mt-12 p-6 bg-gray-50 rounded-xl">
+                                    <h3 className="text-lg font-semibold text-gray-800 mb-4">クレジット</h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-700">
+                                        <div className="space-y-3">
+                                            <p><span className="font-bold">ありがとうマイタ・休憩マイタ</span><br />ささみ(<a href="https://x.com/not_muneniku?s=21" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@not_muneniku</a>)</p>
+                                            <p><span className="font-bold">お疲れ様ですマイタ・ぴえんマイタ</span><br />ねこの</p>
+                                            <p><span className="font-bold">ルンルンマイタ</span><br />aru</p>
+                                            <p><span className="font-bold">すみませんマイタ・照れマイタ</span><br />あざら(<a href="https://twitter.com/azala_exire" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@azala_exire</a>)</p>
+                                            <p><span className="font-bold">すご～いマイタ</span><br />やし</p>
+                                            <p><span className="font-bold">どうすれば…マイタ・了解ですマイタ</span><br />魚林(<a href="https://x.com/osakana_0909?s=21&t=hTtafvu2XqqtD9vEHu9mbA" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@osakana_0909</a>)</p>
+                                            <p><span className="font-bold">それいいねマイタ・参ったマイタ</span><br />740</p>
+                                            <p><span className="font-bold">横転マイタ・暑くて溶けるマイタ</span><br />でかいいぬ(<a href="https://x.com/dekaiyoinu?s=21&t=hTtafvu2XqqtD9vEHu9mbA" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@dekaiyoinu</a>)</p>
+                                        </div>
+                                        <div className="space-y-3">
+                                            <p><span className="font-bold">おやすみマイタ</span><br />YK</p>
+                                            <p><span className="font-bold">お辞儀マイタ・進捗ダメですマイタ</span><br />円周率(<a href="https://x.com/perokyan314?s=21&t=hTtafvu2XqqtD9vEHu9mbA" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@perokyan314</a>)</p>
+                                            <p><span className="font-bold">きゅんきゅんマイタ</span><br />りんく</p>
+                                            <p><span className="font-bold">おはようマイタ</span><br />ei</p>
+                                            <p><span className="font-bold">またねマイタ</span><br />れんれん</p>
+                                            <p><span className="font-bold">宇宙猫マイタ</span><br />はるぅ(<a href="https://x.com/mizoren_arp?s=21&t=hTtafvu2XqqtD9vEHu9mbA" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@mizoren_arp</a>)</p>
+                                            <p><span className="font-bold">今日もビールがうまいマイタ・出禁マイタ</span><br />とりけちゅん(<a href="https://x.com/kechuntori?s=21&t=hTtafvu2XqqtD9vEHu9mbA" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@kechuntori</a>)</p>
+                                            <p><span className="font-bold">絶起マイタ</span><br />GA-CHAN(<a href="https://x.com/ga_chan_skeb?s=21&t=hTtafvu2XqqtD9vEHu9mbA" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@ga_chan_skeb</a>)</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -133,10 +116,6 @@ export default function ProjectDetail() {
                 <Footer bgColor="bg-transparent" textColor="text-gray-800" />
             </div>
             
-            {/* <Script
-                src="https://platform.twitter.com/widgets.js"
-                strategy="lazyOnload"
-            /> */}
         </>
     );
 }
