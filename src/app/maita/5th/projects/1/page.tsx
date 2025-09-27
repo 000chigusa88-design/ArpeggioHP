@@ -91,7 +91,7 @@ export default function ProjectDetail() {
                                             <p><span className="font-bold">きゅんきゅんマイタ</span><br />りんく</p>
                                             <p><span className="font-bold">おはようマイタ</span><br />ei</p>
                                             <p><span className="font-bold">またねマイタ</span><br />れんれん</p>
-                                            <p><span className="font-bold">宇宙猫マイタ</span><br />はるぅ(<a href="https://x.com/mizoren_arp?s=21&t=hTtafvu2XqqtD9vEHu9mbA" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@mizoren_arp</a>)</p>
+                                            <p><span className="font-bold">宇宙猫マイタ</span><br />みぞれん(<a href="https://x.com/mizoren_arp?s=21&t=hTtafvu2XqqtD9vEHu9mbA" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@mizoren_arp</a>)</p>
                                             <p><span className="font-bold">今日もビールがうまいマイタ・出禁マイタ</span><br />とりけちゅん(<a href="https://x.com/kechuntori?s=21&t=hTtafvu2XqqtD9vEHu9mbA" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@kechuntori</a>)</p>
                                             <p><span className="font-bold">絶起マイタ</span><br />GA-CHAN(<a href="https://x.com/ga_chan_skeb?s=21&t=hTtafvu2XqqtD9vEHu9mbA" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">@ga_chan_skeb</a>)</p>
                                         </div>
