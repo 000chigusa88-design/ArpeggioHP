@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 body {
-  background-color: black; /* 背景色を黒に設定 */
-  color: white; /* テキストの色を白に設定 */
   font-family: 'Arial', sans-serif;
 }
 
@@ -22,4 +20,5 @@ body {
   background: radial-gradient(circle, white, transparent);
   animation: shine 2s infinite;
 }
+
 
